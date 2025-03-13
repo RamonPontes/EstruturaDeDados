@@ -8,9 +8,9 @@ struct lista {
 
 typedef struct lista Lista;
 
-Lista* inicializa() {
-    return NULL;
-}
+    Lista* inicializa() {
+        return NULL;
+    }
 
 Lista* insere(Lista* l, int i) {
     Lista*novo=(Lista*) malloc(sizeof(Lista));
