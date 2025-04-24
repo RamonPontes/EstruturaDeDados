@@ -49,14 +49,26 @@ void libera(Fila *f) {
     free(f);
 }
 
+void mostrafila(Fila *f) {
+    int n = f->ini;
+    while (n < f->fim) {
+        if (n == f->ini)
+            printf("INICIO ->");
+        else 
+            printf("       ->");
+        printf("%f\n", f->vet[n]);
+        n = incr(n);
+    }
+}
+
 int main() {
     Fila *f = cria();
     float elem;
     int opcao = 0;
 
-    while (opcao != 3) {
-        printf("\n1-Insere na fila\n2-Retira da fila\n3-Fim\n");
-        printf("Selecione sua opção (1-3): ");
+    while (opcao != 4) {
+        printf("\n1-Insere na fila\n2-Retira da fila\n3-Mostra fila\n4-Fim\n");
+        printf("Selecione sua opção (1-41): ");
         scanf("%d", &opcao);
 
         switch (opcao) {
@@ -69,6 +81,9 @@ int main() {
                 printf("Elemento retirado: %f", retira(f));
                 break;
             case 3:
+                mostrafila(f);
+                break;
+            case 4:
                 break;
             default:
                 printf("Opção inválida");
