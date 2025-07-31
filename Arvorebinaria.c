@@ -68,6 +68,30 @@ void in(Arv* a) {
     }
 }
 
+void dne(Arv* a) {
+    if (a != NULL) {
+        in(a->dir);
+        printf(" %c", a->info);
+        in(a->esq);
+    }
+}
+
+void edn(Arv* a) {
+    if (a != NULL) {
+        in(a->esq);
+        in(a->dir);
+        printf(" %c", a->info);
+    }
+}
+
+void nde(Arv* a) {
+    if (a != NULL) {
+        printf(" %c", a->info);
+        in(a->dir);
+        in(a->esq);
+    }
+}
+
 int busca(Arv *a, char elem) {
     if (a == NULL)
         return 0;
@@ -89,7 +113,8 @@ int main() {
     while (opcao != 0) {
         printf("\n1-Insere\n2-Mostra pré-ordem");
         printf("\n3-Mostra in-ordem\n4-Mostra pós-ordem");
-        printf("\n5-Busca\n0-Sair");
+        printf("\n5-Mostra em DNE\n6-Mostra em EDN");
+        printf("\n7-Mostra em NDE\n8-Busca\n0-Sair");
         printf("\nDigite sua opção: ");
         scanf("%d", &opcao);
         
@@ -109,6 +134,15 @@ int main() {
                 pos(a);
                 break;
             case 5:
+                dne(a);
+                break;            
+            case 6:
+                edn(a);
+                break;            
+            case 7:
+                nde(a);
+                break;
+            case 8:
                 printf("Digite elemento a incluir ");
                 scanf(" %c", &elem);
 
